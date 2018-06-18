@@ -50,7 +50,7 @@ export class ScheduleSearchCriteriaComponent implements OnInit, OnDestroy {
 
     const formModel = this.dailyScheduleSearchForm.value;
     const facilityId = formModel.facilitySelect as string;
-    const startDate = formModel.startDatePicker.format('MM/DD/YYYY') as string;
+    const startDate = formModel.startDatePicker.format('MM-DD-YYYY') as string;
 
     const location = _.find(this.locations, { facilityId: facilityId });
 

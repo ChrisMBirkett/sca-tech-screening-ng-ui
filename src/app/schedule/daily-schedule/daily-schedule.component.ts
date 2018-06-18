@@ -51,6 +51,8 @@ export class DailyScheduleComponent implements OnInit, OnDestroy {
 
     this.snackBar.open('Search requested', 'Getting Schedules', { duration: 5000 });
 
+    console.log(searchCriteria);
+
     this.searchCriteria = searchCriteria;
 
     this.showSpinner = true;
@@ -58,7 +60,7 @@ export class DailyScheduleComponent implements OnInit, OnDestroy {
     this.schedulesSubscription = this.dailyScheduleService
                                     .getScheduleByLocationAndStartDate(searchCriteria.facilityId, searchCriteria.startDate)
                                     .subscribe(
-                                      (data: Schedule[]) => { this.schedules = data; },
+                                      (data: Schedule[]) => { this.schedules = data; console.log(data) ;},
                                       err => { this.snackBar.open(err, 'Error getting schedules', { duration: 5000 }); console.error(err); },
                                       () => { this.showSpinner = false; });
   }

@@ -26,9 +26,11 @@ export class DailyScheduleService {
     facilityId: string,
     startDate: string
   ): Observable<Schedule[]> {
+    const url = environment.getScheduleByLocationAndStartDateApi + facilityId + '/' + startDate;
+    console.log(url);
     const headers = new HttpHeaders({ Accept: 'application/json' });
     return this.http
-      .get<any>(environment.getScheduleByLocationAndStartDateApi + '${facilityId}/${startDate}', { headers, observe: 'response' })
+      .get<any>(url, { headers, observe: 'response' })
       .pipe(map(response => response['body']['data']));
   }
 }

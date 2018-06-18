@@ -86,7 +86,7 @@ export class ScheduleSearchResultsComponent
   exportToExcel(): void {
     const fileName = this.searchCriteria.facilityName + '_' +
                      this.searchCriteria.facilityId + '_' +
-                     this.searchCriteria.startDate.replace('/', '-');
+                     this.searchCriteria.startDate;
     this.excelExportService.exportAsExcelFile(this.schedules, fileName);
   }
 
